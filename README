@@ -1,0 +1,25 @@
+To execute this code run the script:
+./start.sh
+
+For tests execution:
+./startTests.sh
+
+Technologies used: Java 8, Spring Data, Mongo, JUnit, Guava.
+
+If we want to process really big amount of data, we should use appropriate instruments.
+Big Data technologies may be to expensive.
+I'll prefer lucine-based engines, like ElasticSearch, where we can easily create many statistics wth UI (using Kibana).
+
+But for this task I used mongoDB, because It's easier hear and using aggregation module from mongo we can calculate many statistics on DB
+level without unnecessary queries and data transferring to our application.
+
+I used embedded mongoDB to simplify delivering of this application.
+
+Program architecture allows to add new statistics algorithm (both onthegly and relayed) easily.
+
+Possible improvements:
+1) Move all hardcoded info to spring cloud.
+2) Use real mongo, not embedded for production.
+3) Process data in several threads.
+For now It doesn't give any performance win, because of only one connection to embedded mongoDB.
+Profiling with simple timer.
